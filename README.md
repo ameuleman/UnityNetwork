@@ -16,4 +16,4 @@ the host's button changes cube's color for the client.
 
 ### Changing network managing technique
 We can choose to use either *RPC* or *SyncVar* by changing the button `onClick` action, which should be linked to a `changeColor()` function.
-Scripts for both techniques are available at [`Assets/scripts/RpcScript`](Assets/scripts/RpcScript) and at [`Assets/scripts/SyncVarScript`](Assets/scripts/SyncVarScript).
+Scripts for both techniques are available at [`Assets/scripts/RpcScript.cs`](Assets/scripts/RpcScript.cs) and at [`Assets/scripts/SyncVarScript.cs`](Assets/scripts/SyncVarScript.cs).
