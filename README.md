@@ -17,3 +17,5 @@ the host's button changes cube's color for the client.
 ### Changing network managing technique
 We can choose to use either *RPC* or *SyncVar* by changing the button `onClick` action, which should be linked to a `changeColor()` function.
 Scripts for both techniques are available at [`Assets/scripts/RpcScript.cs`](Assets/scripts/RpcScript.cs) and at [`Assets/scripts/SyncVarScript.cs`](Assets/scripts/SyncVarScript.cs).
+
+See [Simple Multiplayer Example](https://unity3d.com/fr/learn/tutorials/topics/multiplayer-networking/introduction-simple-multiplayer-example?playlist=29690) for more explaination on Network Manager's set up.
