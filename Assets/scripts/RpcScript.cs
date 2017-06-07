@@ -7,14 +7,21 @@ using UnityEngine.Networking;
 public class RpcScript : NetworkBehaviour {
 	private Material material;
 
+	/// <summary>
+	/// Start this instance. 
+	/// Hide the mesh on server side 
+	/// Assign the material of the mesh to material on client side
+	/// </summary>
 	void Start () {
 		if (isServer)
-			// Hide the mesh on server side 
 			GetComponent<MeshRenderer> ().enabled = false;
 		else
 			material = GetComponent<MeshRenderer> ().material;
 	}
 
+	/// <summary>
+	/// Call RpcChangeMaterialColor() on all clients
+	/// </summary>
 	public void changeColor()
 	{
 		// Call the function on all clients
@@ -23,8 +30,11 @@ public class RpcScript : NetworkBehaviour {
 
 	// [ClientRpc] enables to call this function on all clients
 	[ClientRpc]
+	/// <summary>
+	/// Rpcs change the color of the material. 
+	/// Called on all clients when called on the server
+	/// </summary>
 	void RpcChangeMaterialColor(){
-		// Switch colors
 		if(!isServer)
 			if (material.color == Color.black)
 				material.color = Color.blue;

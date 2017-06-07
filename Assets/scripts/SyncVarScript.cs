@@ -5,12 +5,20 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class SyncVarScript : NetworkBehaviour {
+	/// <summary>
 	/// color will be synchronizzed on all clients. 
 	/// Call changeMaterialColor when color's value changes.
+	/// </summary>
 	[SyncVar(hook="changeMaterialColor")]
 	public Color color = Color.white;
+
 	private Material material;
 
+	/// <summary>
+	/// Start this instance. 
+	/// Hide the mesh on server side 
+	/// Assign the material of the mesh to material on client side
+	/// </summary>
 	void Start () {
 		if (isServer)
 			GetComponent<MeshRenderer> ().enabled = false;
@@ -18,9 +26,11 @@ public class SyncVarScript : NetworkBehaviour {
 			material = GetComponent<MeshRenderer> ().material;
 	}
 
+	/// <summary>
+	/// change color's value
+	/// </summary>
 	public void changeColor()
 	{
-		// change color's value
 		if(isServer)
 			if (color == Color.black)
 				color = Color.blue;
@@ -28,8 +38,11 @@ public class SyncVarScript : NetworkBehaviour {
 				color = Color.black;
 	}
 
+	/// <summary>
 	/// Changes the color of the material.
 	/// This function is called on all clients when color's value changes
+	/// </summary>
+	/// <param name="col">The new color to assign to the material</param>
 	void changeMaterialColor(Color col){
 		if(!isServer)
 			material.color = col;
