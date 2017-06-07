@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using UnityEngine.Networking;
 
 public class SyncVarScript : NetworkBehaviour {
+	/// color will be synchronizzed on all clients. 
+	/// Call changeMaterialColor when color's value changes.
 	[SyncVar(hook="changeMaterialColor")]
 	public Color color = Color.white;
 	private Material material;
@@ -18,6 +20,7 @@ public class SyncVarScript : NetworkBehaviour {
 
 	public void changeColor()
 	{
+		// change color's value
 		if(isServer)
 			if (color == Color.black)
 				color = Color.blue;
@@ -25,6 +28,8 @@ public class SyncVarScript : NetworkBehaviour {
 				color = Color.black;
 	}
 
+	/// Changes the color of the material.
+	/// This function is called on all clients when color's value changes
 	void changeMaterialColor(Color col){
 		if(!isServer)
 			material.color = col;

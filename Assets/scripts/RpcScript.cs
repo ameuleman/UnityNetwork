@@ -9,6 +9,7 @@ public class RpcScript : NetworkBehaviour {
 
 	void Start () {
 		if (isServer)
+			// Hide the mesh on server side 
 			GetComponent<MeshRenderer> ().enabled = false;
 		else
 			material = GetComponent<MeshRenderer> ().material;
@@ -16,11 +17,14 @@ public class RpcScript : NetworkBehaviour {
 
 	public void changeColor()
 	{
+		// Call the function on all clients
 		RpcChangeMaterialColor ();
 	}
 
+	// [ClientRpc] enables to call this function on all clients
 	[ClientRpc]
 	void RpcChangeMaterialColor(){
+		// Switch colors
 		if(!isServer)
 			if (material.color == Color.black)
 				material.color = Color.blue;
