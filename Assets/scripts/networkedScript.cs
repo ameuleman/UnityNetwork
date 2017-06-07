@@ -10,7 +10,11 @@ public class networkedScript : NetworkBehaviour {
 	private Material material;
 
 	void Start () {
+		color = Color.white;
 		material = new Material (Shader.Find ("Diffuse"));
+		if (isServer) {
+			this.GetComponent<MeshRenderer> ().enabled = false;
+		}
 	}
 
 	void Update(){
@@ -21,9 +25,10 @@ public class networkedScript : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcAction()
 	{
-		if (color == Color.black)
-			color = Color.blue;
-		else
-			color = Color.black;
+		if(isServer)
+			if (color == Color.black)
+				color = Color.blue;
+			else
+				color = Color.black;
 	}
 }
