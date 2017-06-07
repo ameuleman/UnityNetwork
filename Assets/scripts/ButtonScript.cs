@@ -11,9 +11,4 @@ public class ButtonScript : NetworkBehaviour {
 		if (!isServer)
 			this.GetComponent<Button>().gameObject.SetActive(false);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }
