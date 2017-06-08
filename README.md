@@ -2,7 +2,7 @@
 
 ## Description
 
-The aime of this project is to show how to use Unity3D Network Manager to obtain a master/slave application: the master part can control the environment of the slave. It shows how to use ***RPC*** and ***SyncVar***. *RPC* enables to call functions on client side while *SyncVar* synchronize a variable on all clients.
+The aim of this project is to show how to use Unity3D Network Manager to obtain a master/slave application: the master part can control the environment of the slave. It shows how to use ***RPC*** and ***SyncVar***. *RPC* enables to call functions on client side while *SyncVar* synchronize a variable on all clients.
 
 ## Instructions
 
